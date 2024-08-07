@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import { useState } from 'react';
+import useDebounced from './useDebounced';
 
 import Error    from '../PageComponents/Error';
 import Text     from '../PageComponents/Text';
@@ -6,9 +7,7 @@ import Loading  from '../PageComponents/Loading';
 import Films    from '../PageComponents/Films';
 import SearchBar from '../SearchBar/SearchBar';
 
-import { Film } from '../types';
-import { fetch10Chars, getFilm } from '../API';
-
+import { Item } from '../classes';
   
 const MainPage = () => {
     const [error, setError]     = useState<string>('');
@@ -16,59 +15,25 @@ const MainPage = () => {
     const [click, setClick]     = useState<boolean>(false);
 
     const [input, setInput]     = useState<string>('');
-    const [character, setChar]  = useState<Record<string, any > | null>(null);
+    const [character, setChar]  = useState<Item | null>(null);
     const [home, setHome]       = useState<string>('');
-    const [films, setFilms]     = useState<Film[]>([]);
+    const [films, setFilms]     = useState<string[]>([]);
 
-    useEffect(()=>{
-        setError('');
-        // handling debounce
-        const timeout = setTimeout(() => {
-        if (input === '') {
-            setChar(null);
-            setDisplay('none');
-        } else {
-            setDisplay('');
-            fetchChar(input);
-        }
-        }, 1000); 
-
-        return () => {
-            clearTimeout(timeout);
-        };
-    }, [input])
-
-
-    const fetchChar = async (input: string): Promise<void> => {
-        try {
-            const res = await fetch10Chars(input);
-    
-            if (typeof res !== 'string') {
-                setChar(res.char);
-                setHome(res.homeName);
-            } else {
-                setError(res);
-                setDisplay('none')
-            }
-        } catch (e) {
-            console.error(e);
-            setError("An unexpected error occurred.");
-            setDisplay('none')
-        }
-    };
+    useDebounced({input,setError,setChar,setDisplay,setHome});
 
     const onClick = async () => {
 
         // Change button to loading...
         click ? setClick(false) : setClick(true);
 
-        // Combine all getFilm functions into Promise.all to handle async requests
-        try {
-            const films = character && character.films.map((film_url: string) => getFilm(film_url));
-            const results: Film[] = await Promise.all(films);    
-            setFilms(results);
-        } catch (error) {
-            console.error('Error fetching films:', error);
+        if (character) {
+            try {
+                await character.getFilmes();
+                setFilms(character.film_titles); 
+            } catch (error) {
+                console.error('Error fetching films:', error);
+                setError('Error fetching films.');
+            }
         }
     };
 
@@ -84,7 +49,7 @@ const MainPage = () => {
                                 <Text text={character.birth_year} title='Date of birth'/>
                                 <Text text={character.gender} title='Gender'/>
                                 <Text text={home} title='Homeworld'/>
-                        </div> : <Films films={films} onClick={onClick} click={click}/>
+                        </div> : <Films films={character.film_titles} onClick={onClick} click={click}/>
                 ) : <Loading display={display} /> }
             </div>
         </div>

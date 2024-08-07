@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Character, CharacterData, Homeworld, Film } from "./types";
+import { Character, CharacterData, Homeworld} from "./types";
 
 export const fetch10Chars = async (input: string): Promise<CharacterData | string> => {
     try {
@@ -25,16 +25,5 @@ export const fetch10Chars = async (input: string): Promise<CharacterData | strin
     } catch (e) {
         console.error(e);
         return "Failed to retrieve data";
-    }
-};
-
-export const getFilm = async (url: string): Promise<Film | null> => {
-    try {
-    const response = await axios.get(url);
-    return response.data;
-
-    } catch (error) {
-    console.error('Error fetching film:', error);
-    return null;
     }
 };

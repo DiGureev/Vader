@@ -1,33 +1,28 @@
-import React, { Component } from 'react';
-import { Film } from '../types';
+import React from 'react';
 
 interface FilmProps {
-    films: Film[];
+    films: string[];
     onClick: () => void;
     click: boolean;
 }
 
-
-class Films extends Component<FilmProps> {
-    render() {
-        const { films, onClick, click } = this.props;
-        
-        if (!films.length) {
-            return (
-                <div onClick={onClick} className={`card ${click ? 'flipped' : ''}`}>
-                    <p>Loading films...</p>
-                </div>
-            )
-        }
+const Films: React.FC<FilmProps> = ({films, onClick, click}) =>{
+    if (!films.length) {
         return (
             <div onClick={onClick} className={`card ${click ? 'flipped' : ''}`}>
-                <h3>Films:</h3>
-                {films.map((film: Film, index: number) => (
-                    <p key={index}>{film.title}</p>
-                ))}
+                <p>Loading films...</p>
             </div>
-        );
+        )
     }
+    return (
+        <div onClick={onClick} className={`card ${click ? 'flipped' : ''}`}>
+            <h3>Films:</h3>
+            {films.map((film: string, index: number) => (
+                <p key={index}>{film}</p>
+            ))}
+        </div>
+    );
 }
+
 
 export default Films;

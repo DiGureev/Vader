@@ -1,18 +1,11 @@
-import React, {Component} from "react";
+import React from 'react';
 
 interface BaseContainerProps {
-    children: React.ReactNode; 
-  }
-
-// General component for the main container
-class BaseContainer extends Component<BaseContainerProps> {
-
-    render(){
-        const {children} = this.props;
-
-        return <div className="base-container">{children}</div>
-    }
-
+    children: React.ReactNode;
 }
 
-export default BaseContainer
+const BaseContainer: React.FC<BaseContainerProps> = ({ children }) => {
+    return <div className="base-container">{children}</div>;
+}
+
+export default BaseContainer;

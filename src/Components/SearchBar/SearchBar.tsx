@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Input from '../PageComponents/Input';
 import Logo from './Logo';
 
@@ -8,9 +8,7 @@ interface SearchProps {
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-class SearchBar extends Component<SearchProps> {
-    render() {
-    const { onChange} = this.props
+const SearchBar: React.FC<SearchProps> = ({onChange}) => {
 
     return (
         <div id="search-bar">
@@ -21,7 +19,6 @@ class SearchBar extends Component<SearchProps> {
                 />
         </div>
     );
-    }
 };
 
 export default SearchBar;

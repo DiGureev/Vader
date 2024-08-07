@@ -1,5 +1,5 @@
 
-import React, { Component } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
@@ -9,10 +9,7 @@ interface LoadingProps {
     display: string;
 }
 
-class Loading extends Component<LoadingProps> {
-
-    render() {
-    const { display } = this.props
+const Loading: React.FC<LoadingProps> = ({display}) => {
 
     return (
         <div style={{display: display}} className='loading-div'>
@@ -20,7 +17,7 @@ class Loading extends Component<LoadingProps> {
             <h1>Loading</h1>
         </div>
     );
-    }
+
 };
 
 export default Loading;

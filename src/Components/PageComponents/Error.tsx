@@ -1,17 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 interface ErrorProps {
     error: string;
 }
 
-class Error extends Component<ErrorProps> {
-    render() {
-    const { error } = this.props
-
-    return (
-        <p>{error}</p>
-    );
-    }
-};
+const Error: React.FC<ErrorProps> = ({ error }) => {
+    return <p>{error}</p>;
+}
 
 export default Error;

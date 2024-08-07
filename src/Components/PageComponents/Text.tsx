@@ -1,21 +1,15 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React from 'react';
 
 interface TextProps {
     text: string;
     title: string;
 }
 
+const Text: React.FC<TextProps> = ({text, title}) => {
 
-class Text extends Component<TextProps> {
-
-    
-    render() {
-        const { text, title } = this.props
     return (
         <h3>{title}: {text}</h3>
     );
-    }
 };
 
 export default Text;

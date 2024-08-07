@@ -1,14 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 interface InputProps {
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
     placeholder?: string;
 }
 
-class Input extends Component<InputProps> {
-    render() {
-    const { onChange, placeholder } = this.props
-
+const Input: React.FC<InputProps> = ({onChange, placeholder}) => {
     return (
         <input
             type="text"
@@ -16,7 +13,6 @@ class Input extends Component<InputProps> {
             placeholder={placeholder}
         />
     );
-    }
 };
 
 export default Input;
