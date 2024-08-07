@@ -1,0 +1,16 @@
+#search-bar {
+    background-color: black;
+    padding: 1em 1.5em;
+
+    display: grid;
+    grid-template-columns: 10% 1fr;
+}
+
+#search-bar input {
+    width: 40%;
+    margin: auto;
+
+    border: 0;
+    border-radius: 2px;
+    padding: 0.5em 1em;
+}

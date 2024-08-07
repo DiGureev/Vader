@@ -1,0 +1,12 @@
+.loading-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    margin-left: 10%;
+}
+
+#loading-icon {
+    animation: 'spin 1s linear infinite';
+    font-size: 2em;
+}
