@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/DiGureev/Vader.git/static/css/main.14f66681.css",
-    "main.js": "/DiGureev/Vader.git/static/js/main.5413d07e.js",
-    "static/js/453.8e64f8e1.chunk.js": "/DiGureev/Vader.git/static/js/453.8e64f8e1.chunk.js",
-    "static/media/Star_Wars_Logo.svg": "/DiGureev/Vader.git/static/media/Star_Wars_Logo.dba53346071790164aae5a3f7d01797b.svg",
-    "index.html": "/DiGureev/Vader.git/index.html",
-    "main.14f66681.css.map": "/DiGureev/Vader.git/static/css/main.14f66681.css.map",
-    "main.5413d07e.js.map": "/DiGureev/Vader.git/static/js/main.5413d07e.js.map",
-    "453.8e64f8e1.chunk.js.map": "/DiGureev/Vader.git/static/js/453.8e64f8e1.chunk.js.map"
+    "main.css": "/Vader/static/css/main.14f66681.css",
+    "main.js": "/Vader/static/js/main.acaef7da.js",
+    "static/js/453.8e64f8e1.chunk.js": "/Vader/static/js/453.8e64f8e1.chunk.js",
+    "static/media/Star_Wars_Logo.svg": "/Vader/static/media/Star_Wars_Logo.dba53346071790164aae5a3f7d01797b.svg",
+    "index.html": "/Vader/index.html",
+    "main.14f66681.css.map": "/Vader/static/css/main.14f66681.css.map",
+    "main.acaef7da.js.map": "/Vader/static/js/main.acaef7da.js.map",
+    "453.8e64f8e1.chunk.js.map": "/Vader/static/js/453.8e64f8e1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.14f66681.css",
-    "static/js/main.5413d07e.js"
+    "static/js/main.acaef7da.js"
   ]
 }
